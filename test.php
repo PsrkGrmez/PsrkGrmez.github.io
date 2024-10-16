@@ -40,7 +40,29 @@ switch ($routeInfo[0]) {
 
 // تعریف هندلرها
 function homeHandler() {
-    echo 'Welcome to the homepage!';
+    
+    
+
+    function encrypt($plaintext, $key) {
+        // Generate a random IV each time the function is called
+        $ivSize = openssl_cipher_iv_length('aes-256-ctr');
+        $iv = openssl_random_pseudo_bytes($ivSize);
+    
+        // Encrypt the plaintext
+        $ciphertext = openssl_encrypt($plaintext, 'aes-256-ctr', $key, OPENSSL_RAW_DATA, $iv);
+    
+        // Encode the IV and ciphertext to Base64 to ensure safe storage/transmission
+        $ivBase64 = base64_encode($iv);
+        $ciphertextBase64 = base64_encode($ciphertext);
+    
+        // Return IV and ciphertext as a JSON object for easy extraction
+        return "$ivBase64:$ciphertextBase64";
+    }
+    $key = 'IYqSJoHyqHmC8K2jbiGqppR25xjNM2wo';
+    $encryptedData = encrypt(json_encode("begzar.xyz"), $key);
+
+    echo $encryptedData;
+
 }
 
 function aboutHandler() {
