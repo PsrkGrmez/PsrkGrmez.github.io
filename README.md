@@ -1,2 +1,3 @@
-# PsrkGrmez.github.io
-Api
+# Begzar
+
+Free Proxy Solution, Made for Iranian people.

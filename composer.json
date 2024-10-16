@@ -1,0 +1,21 @@
+{
+    "name": "psrkgrmez/psrkgrmez.github.io",
+    "description": "Begzar App Api",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "PsrkGrmez",
+            "email": "parkgrmez@gmail.com"
+        }
+    ],
+    "require": {
+        "nikic/fast-route": "^1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Begzar\\": "src/"
+        }
+    }
+    
+}
